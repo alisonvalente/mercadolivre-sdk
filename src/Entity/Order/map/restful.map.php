@@ -26,7 +26,7 @@ return [
     ],
     'fetch' => [
         'GET',
-        '/orders/search/recent?seller=227595621&access_token={access_token}'
+        '/orders/search/recent?seller=227595621&shipping.status=pending&access_token={access_token}'
     ],
     'findById' => [
         'GET',
