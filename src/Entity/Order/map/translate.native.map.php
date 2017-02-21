@@ -25,6 +25,7 @@ foreach ($items as $item) {
     ];
 }
 $dateTime = new DateTime($native['date_created']);
+$deliveryDate = new DateTime($native->getShipping()['shipping_option']['estimated_delivery_time']['date']);
 
 $translateStatus = function ($status) {
     $string = strtoupper($status);
@@ -44,6 +45,7 @@ return [
      'acceptedOffer'  => $acceptedOffer,
      'orderStatus'    => $translateStatus($native->getStatus()),
      'orderDate'      => $dateTime->format('Y-m-d H:i:s'),
+     'deliveryDate'   => $deliveryDate->format('Y-m-d H:i:s'),
      'customer'       => [
          'document'   => $native['buyer']['billing_info']['doc_number'],
          'name' => $native['buyer']['first_name'].' '.$native['buyer']['last_name'],
