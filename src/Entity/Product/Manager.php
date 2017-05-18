@@ -40,6 +40,7 @@ final class Manager extends AbstractManager
         'update'        => ['PUT', '/items/{itemId}?access_token={access_token}'],
         //'fetch'      => ['GET', '/products?page={offset}&size={limit}'],
         //'statusById' => ['GET', '/skus/{itemId}/bus/{buId}/status'],
+        'description' => ['PUT', 'items/{itemId}/description?access_token={access_token}'],
     ];
 
     public function translatorInsert(TranslatorDataCollection $data, $mlCategory)
@@ -96,6 +97,9 @@ final class Manager extends AbstractManager
         } else {
             $update['status'] = 'paused';
         }
+
+        /* FIX DESCRIPTION */
+        //$this->execute($this->factoryMap('description', $params), json_encode(['text' => $entity['description']]));
 
         return $this->execute($this->factoryMap('update', $params), json_encode($update));
     }
