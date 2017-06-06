@@ -99,7 +99,9 @@ final class Manager extends AbstractManager
         }
 
         /* FIX DESCRIPTION */
-        //$this->execute($this->factoryMap('description', $params), json_encode(['text' => $entity['description']]));
+        /*if ($entity['description']) {
+            $this->execute($this->factoryMap('description', $params), json_encode(['text' => $entity['description']]));
+        }*/
 
         return $this->execute($this->factoryMap('update', $params), json_encode($update));
     }
