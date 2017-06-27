@@ -37,6 +37,7 @@ final class Product extends EntityAbstract implements EntityInterface
             'available_quantity' => 'number',
             'shipping'           => 'array',
             'official_store_id'  => 'number',
+            'attributes'         => 'array',
         ];
     }
 }

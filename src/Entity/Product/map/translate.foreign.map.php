@@ -20,6 +20,10 @@ foreach ($sku['images'] as $image) {
     $imgList[] = ['source' => $image['url']];
 }
 
+$attributes = [
+    ['id' => 'EAN', 'value_name' => $sku['gtin']],
+];
+
 $array = [
      'title'              => substr($sku['name'], 0, 60),
      'available_quantity' => $sku['stock'],
@@ -33,6 +37,7 @@ $array = [
      'condition'          => $extras['condition'],
      'shipping'           => $extras['shipping'],
      'official_store_id'  => $extras['official_store_id'],
+     'attributes'         => $attributes,
  ];
 
 return $array;
